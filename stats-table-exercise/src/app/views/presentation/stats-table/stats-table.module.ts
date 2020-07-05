@@ -4,10 +4,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 
 import {ChipModule} from '../chip/chip.module';
 import {CustomMaterialModule} from './custom-material.module';
-import {StatsTableRoutingModule} from './stats-table-routing/stats-table-routing.module';
 
 import {StatsTableComponent} from './stats-table/stats-table.component';
-import {StatsTableRoutingComponent} from './stats-table-routing/stats-table-routing.component';
 
 import {OperationChipStylePipe} from './stats-table/pipes/operation-chip-style.pipe';
 import {OperationTypePipe} from './stats-table/pipes/operation-type.pipe';
@@ -16,7 +14,6 @@ import {VolumeSignalPipe} from './stats-table/pipes/volume-signal.pipe';
 
 @NgModule({
   declarations: [
-    StatsTableRoutingComponent,
     StatsTableComponent,
 
     /** PIPES */
@@ -31,7 +28,6 @@ import {VolumeSignalPipe} from './stats-table/pipes/volume-signal.pipe';
     ReactiveFormsModule,
 
     /** StatsTableModule IMPORTS */
-    StatsTableRoutingModule,
     CustomMaterialModule,
     ChipModule,
   ],

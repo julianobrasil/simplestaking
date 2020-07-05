@@ -4,10 +4,6 @@ import {
   Input,
 } from '@angular/core';
 
-import {
-  ChipComponentService,
-} from './chip-component.service';
-
 @Component({
   selector: 'app-chip',
   templateUrl: './chip.component.html',
@@ -20,6 +16,4 @@ export class ChipComponent {
 
   @Input()
   value: string;
-
-  constructor(private _componentService: ChipComponentService) {}
 }

@@ -86,8 +86,6 @@ export class StatsTableComponent implements OnDestroy {
     void
   >();
 
-  constructor() {}
-
   ngOnDestroy(): void {
     if (
       this._unsubscribeOnlyFromVirtualScroll$ &&
