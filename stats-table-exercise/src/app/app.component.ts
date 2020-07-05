@@ -9,7 +9,7 @@ import * as fromRootStore from './data-access/store/root';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Tezo Stats';
+  title = 'Tezos Stats';
 
   constructor(_store: Store<fromRootStore.BasicInfoState>) {
     _store.dispatch(fromRootStore.txExchangeRateRequest());
