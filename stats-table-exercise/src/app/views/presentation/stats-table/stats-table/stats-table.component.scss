@@ -1,0 +1,58 @@
+.row {
+  display: flex;
+  align-items: center;
+  padding: 10px 40px;
+
+  &.with-scrollbar {
+    padding-right: 26px;
+  }
+
+  // Type
+  &>*:nth-child(1) {
+    width: 150px;
+  }
+
+  // Date
+  &>*:nth-child(2) {
+    flex: 1;
+  }
+
+  // Date
+  &>*:nth-child(3) {
+    width: 150px;
+  }
+
+  // Address
+  &>*:nth-child(4) {
+    width: 80px;
+  }
+}
+
+.title {
+  color: rgba(0, 0, 0, 0.35);
+  background-color: rgb(245, 245, 245);
+  padding-right: 40px;
+}
+
+.other-currency {
+  opacity: 0.65;
+}
+
+.recent-transactions {
+  padding: 10px 4px;
+}
+
+.virtual-scrolling-viewport {
+  height: 400px;
+}
+
+.no-data-message {
+  display: flex;
+  justify-content: center;
+
+  padding: 10px 50px;
+}
+
+.ghost-font * {
+  color: rgba(0, 0, 0, 0.4) !important;
+}

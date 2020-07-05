@@ -1,0 +1,45 @@
+<section class="recent-transactions">
+  <button (click)="_retrieveRecentTransactions()" mat-button>
+    <mat-icon>history</mat-icon>
+    Recent Transactions
+  </button>
+</section>
+
+<div class="row title">
+  <section class="type">Type</section>
+  <section class="amount">Amount XTZ ( USD )</section>
+  <section class="date">Date</section>
+  <section class="address">Address</section>
+</div>
+
+<cdk-virtual-scroll-viewport *ngIf="transactions?.length; else noDataMessageBlock"
+                             itemSize="40"
+                             minBufferPx="10"
+                             maxBufferPx="10"
+                             class="virtual-scrolling-viewport">
+  <div *cdkVirtualFor="let op of transactions"
+       [class.with-scrollbar]="_hasScrollbar"
+       [class.ghost-font]="dataLoading"
+       class="row">
+    <section class="type">
+      <app-chip [value]="op | operationType: {userToken: filteredUser}"
+                [style]="op | operationChipStyle: {userToken: filteredUser, mostRecentCycle: mostRecentCycle}">
+      </app-chip>
+    </section>
+    <section class="amount">
+      {{op | volumeSignal: {userToken: filteredUser} }}{{op.volume}} XTZ
+      <span *ngIf="exchangeRate > 0"
+            class="other-currency">
+        {{(op.volume * exchangeRate) | currency:'en-US':'':'1.1-1':''}} USD
+      </span>
+    </section>
+    <section class="date">{{op.time | date: 'MMM d yyyy, HH:mm'}}</section>
+    <section class="address">{{op | partialAddress: {userToken: filteredUser} }}</section>
+  </div>
+</cdk-virtual-scroll-viewport>
+
+<ng-template #noDataMessageBlock>
+  <section class="no-data-message">
+    No data to show!
+  </section>
+</ng-template>
