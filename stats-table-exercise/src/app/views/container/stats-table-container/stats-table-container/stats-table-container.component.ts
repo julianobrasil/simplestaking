@@ -3,7 +3,7 @@ import {
   Component,
 } from '@angular/core';
 
-import {StatsTableContainerComponentService} from './stats-table-container-component.facade';
+import {StatsTableContainerComponentFacade} from './stats-table-container-component.facade';
 import {FormControl} from '@angular/forms';
 
 import {Observable, Subject} from 'rxjs';
@@ -55,7 +55,7 @@ export class StatsTableContainerComponent {
     takeUntil(this._unsubscribe$),
   );
 
-  constructor(private _componentService: StatsTableContainerComponentService) {
+  constructor(private _componentService: StatsTableContainerComponentFacade) {
     this._setupObservables();
   }
 

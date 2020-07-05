@@ -28,6 +28,15 @@ seeing the project being used by cypress as it would be used by a real person).
 There's only one spec file inside the directory `cypress/integration/stats-table`, under the
 project's root directory.
 
+# Unit Tests
+
+Concerning the unit tests, as the description of the exercice stated, I've just write a few tests,
+focused on the component tests, which I think is usually the most painfull test. I've write some
+tests for a container component (`stats-table-container.component.spec.ts`) and for a presentation
+one (`chip.component.spec.ts`). I've sticked to Karma in this case.
+
+To run the unit tests, just type `npm test` in the command line
+
 # How this project is organized
 
 Inside the project's root directory, if you navigate to `src/app`, you'll find two important
@@ -51,7 +60,10 @@ This folder contains all the components, modules, directives and pipes in 2 impo
 
 Additionally to the demmanded state management solution, requested by the exercise description, I've
 also adopted a container-presentation architecture together with `OnPush` strategy. This combination
-is the best, in my opinion, to optimize the performance of the project.
+is the best, in my opinion, to optimize the performance of the project. Also, I've used a Façade
+pattern wheneve possible to isolate the dependencies of the component in a service. With this
+approach I also simplify the component testing as there is fewer things to mock injected the
+component (in normal situations, you just inject the façade in the component).
 
 # Virtual Scrolling
 

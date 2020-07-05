@@ -11,7 +11,7 @@ import * as fromStatsStore from '../../../../data-access/store/tz-stats';
 import * as fromRootStore from '../../../../data-access/store/root';
 
 @Injectable({providedIn: 'root'})
-export class StatsTableContainerComponentService {
+export class StatsTableContainerComponentFacade {
   constructor(private _store: Store<{}>) {}
 
   /** Get the current user from the store (useful if you navigate away and back to the stats table) */
