@@ -20,7 +20,7 @@ structure recommended by http://nrwl.io 's `Nx`.
   - run `npm start`
   - navigate to `localhost:4200`
   - paste the a valid user address in the input
-    - ou can use this one `tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo`
+    - You can use this one `tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo`
 
 # e2e tests
 
@@ -35,10 +35,10 @@ project's root directory.
 
 # Unit Tests
 
-Concerning the unit tests, as the description of the exercice stated, I've just write a few tests,
-focused on the component tests, which I think is usually the most painfull test. I've write some
-tests for a container component (`stats-table-container.component.spec.ts`) and for a presentation
-one (`chip.component.spec.ts`). I've sticked to Karma in this case.
+Concerning the unit tests, as the description of the exercice stated, I've just writen a few tests,
+focused on the component tests, which I think are usually the most painfull tests to write. So I've 
+writen some tests for a container component (`stats-table-container.component.spec.ts`) and for a 
+presentation one (`chip.component.spec.ts`). I've sticked to Karma in this case.
 
 To run the unit tests, just type `npm test` in the command line
 
