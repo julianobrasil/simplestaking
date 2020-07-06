@@ -100,13 +100,13 @@ distributed in the project following a robust and flexible architecture though.
 The final balance is that spent 60% of the time reading about Tezos and cryptocurrencies and 40% of
 the time actually building the application.
 
-One concept is still missing to me: the pending status. I got, from what I've read in the description,
+One concept is still missing to me: the pending status. I've got, from what I've read in the description,
 that I should stick to the `transaction` type in the operations table. And I couldn't find a
-reliable way to find out when and how I could extract that "Pending" information that should be used
-in one of the label chips in the first column in the example image.
+reliable way to find out when and how I could extract that "Pending" information that appears
+in one of the label chips in the example image (in the first column).
 
 Another thing I haven't gotten is related to the fees. I'm always adding the fee to the volume.
 After that, I'm considering that if the user is a sender, the value is negative, otherwise it's
-positive. This is something that makes sense for me (sending mone = negative; receiving
+positive. This is something that makes sense for me (sending money = negative; receiving
 money = positive), but in the example image there's a case of a `sent` which is positive. I couldn't
-figure out why this is was happening.
+figure out what situation could get to that result.
