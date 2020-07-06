@@ -65,12 +65,12 @@ This folder contains all the components, modules, directives and pipes in 2 impo
 
 # Design pattern
 
-Additionally to the demmanded state management solution, requested by the exercise description, I've
+Additionally to the demmanded state management solution, requested in the exercise description, I've
 also adopted a container-presentation architecture together with `OnPush` strategy. This combination
 is the best, in my opinion, to optimize the performance of the project. Also, I've used a Façade
-pattern wheneve possible to isolate the dependencies of the component in a service. With this
-approach I also simplify the component testing as there is fewer things to mock injected the
-component (in normal situations, you just inject the façade in the component).
+pattern whenever possible to encapsulate all the dependencies of the component in a single service. 
+With this approach I also simplify the component testing as there is fewer things to mock injected into 
+the component (in normal situations, you just inject the façade in the component).
 
 # Virtual Scrolling
 
