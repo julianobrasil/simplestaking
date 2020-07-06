@@ -3,8 +3,8 @@ import {Operation} from '../../../../../data-access/models';
 
 @Pipe({name: 'operationType'})
 export class OperationTypePipe implements PipeTransform {
-  transform(value: Operation, args: {userToken: string}): string {
-    if (!value || !args?.userToken) {
+  transform(value: Operation, args: {userAddress: string}): string {
+    if (!value || !args?.userAddress) {
       return '';
     }
 
@@ -12,11 +12,11 @@ export class OperationTypePipe implements PipeTransform {
       return 'Reward';
     }
 
-    if (value.sender === args.userToken) {
+    if (value.sender === args.userAddress) {
       return 'Sent';
     }
 
-    if (value.receiver === args.userToken) {
+    if (value.receiver === args.userAddress) {
       return 'Received';
     }
   }

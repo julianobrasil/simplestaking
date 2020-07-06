@@ -1,7 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 import {StatsTableContainerComponentFacade} from './stats-table-container-component.facade';
 import {FormControl} from '@angular/forms';
@@ -59,29 +56,17 @@ export class StatsTableContainerComponent {
     this._setupObservables();
   }
 
-  /** Update the transactions when the user clicks on the button  */
-  _getTransactions(): void {
-    if (!this._inputNameCtrl.value) {
-      return;
-    }
-
-    this._componentService.updateSearchFilter(this._inputNameCtrl.value);
-  }
-
   /** When the user clicks on the clock button, ask for the most recent data from the server */
   _handleDataRequested(event: StatsTableComponentEvent): void {
     this._componentService.updatePagedData(event.older);
   }
 
+  /** Observe the input value changes so we can update the filter */
   private _setupObservables(): void {
     this._inputNameCtrl.valueChanges
       .pipe(debounceTime(500))
       .subscribe((value: string) => {
         this._componentService.updateSearchFilter(value);
       });
-
-    // this._componentService.updateSearchFilter(
-    //   'tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo',
-    // );
   }
 }
