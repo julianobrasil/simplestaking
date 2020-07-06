@@ -2,8 +2,8 @@
 
 I tried to keep this project as simple as possible, without jeopardizing its scallability. By saying
 that, I mean that, even if this is a simple project, I applied what I consider to be the best
-practices for small to medium size projects. For large projects, I'd suggest adpting the 
-http://nrwl.io's `Nx` structure.
+practices for small to medium size projects. For large projects, I'd suggest adopting the 
+structure recommended by http://nrwl.io 's `Nx`.
 
 # What you need to run the project
 
