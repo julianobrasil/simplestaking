@@ -7,6 +7,7 @@ import {CustomMaterialModule} from './custom-material.module';
 
 import {StatsTableComponent} from './stats-table/stats-table.component';
 
+import {FinalAmountPipe} from './stats-table/pipes/final-amount.pipe';
 import {OperationChipStylePipe} from './stats-table/pipes/operation-chip-style.pipe';
 import {OperationTypePipe} from './stats-table/pipes/operation-type.pipe';
 import {PartialAddressPipe} from './stats-table/pipes/partial-address.pipe';
@@ -17,6 +18,7 @@ import {VolumeSignalPipe} from './stats-table/pipes/volume-signal.pipe';
     StatsTableComponent,
 
     /** PIPES */
+    FinalAmountPipe,
     OperationChipStylePipe,
     OperationTypePipe,
     PartialAddressPipe,

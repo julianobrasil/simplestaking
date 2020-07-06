@@ -24,9 +24,9 @@ export const initialState: TzStatsTableState = {
     limit: 10,
   },
   filter: {
-    userToken: null,
-    receiverToken: null,
-    senderToken: null,
+    userAddress: null,
+    receiverAddress: null,
+    senderAddress: null,
   },
   data: {},
   dataLoading: false,

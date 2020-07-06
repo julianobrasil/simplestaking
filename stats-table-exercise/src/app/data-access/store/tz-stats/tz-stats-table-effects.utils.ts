@@ -14,16 +14,16 @@ export function retrieveDataFromTheApi(
   },
   tzStatsApi: TzStatsApi,
 ): Observable<{transactions: Operation[]}> {
-  if (args.filter?.userToken) {
+  if (args.filter?.userAddress) {
     // Use the same user token for the sender OR receiver
     return forkJoin([
       tzStatsApi.getTzTransactions(
-        {receiver: args.filter.userToken},
+        {receiver: args.filter.userAddress},
         args.pagination,
         args.oldestData,
       ),
       tzStatsApi.getTzTransactions(
-        {sender: args.filter?.userToken},
+        {sender: args.filter?.userAddress},
         args.pagination,
         args.oldestData,
       ),
@@ -35,8 +35,8 @@ export function retrieveDataFromTheApi(
   } else {
     // Use receiver OR sender (you cannot have both here or you're gonna get strange results)
     const filter = {
-      receiver: args.filter.receiverToken,
-      sender: args.filter.senderToken,
+      receiver: args.filter.receiverAddress,
+      sender: args.filter.senderAddress,
     };
     return tzStatsApi
       .getTzTransactions(filter, args.pagination, args.oldestData)

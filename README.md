@@ -1,13 +1,19 @@
-# simplestaking
+# simplestaking.com hiring process
 
 This project is part of the hiring process.
+
+I tried to keep the project as simple as possible, without jeopardizing its scallability. By saying
+that, I mean that, even if this is a simple project, I applied what I consider to be the best
+practices for small to medium size projects. For large projects, I'd suggest adpting the 
+http://nrwl.io's `Nx` structure.
 
 # What you need to run the project
 
 - Node.js (the project was built against v13.11.0)
 - Git
 - Internet connection
-- A valid Tezo user token (you can copy this one and paste on the input: `tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo`)
+- A valid Tezo account address 
+  - You can copy this one and paste on the input: `tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo`
 
 # How you can run the project
 
@@ -15,7 +21,8 @@ This project is part of the hiring process.
   - run `npm install`
   - run `npm start`
   - navigate to `localhost:4200`
-  - paste the a valid user token in the input (you can use this one `tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo`)
+  - paste the a valid user address in the input
+    - ou can use this one `tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo`
 
 # e2e tests
 
@@ -45,16 +52,18 @@ folders: `data-access` and `views`.
 ## `data-access` directory
 
 This folder contains the following subfolders:
-  - models: Most interfaces used in the project are inside this folder
-  - api: The service that access txstats.com api is located here
-  - store: all @ngrx files are here
+
+- models: Most interfaces used in the project are inside this folder
+- api: The service that access txstats.com api is located here
+- store: all @ngrx files are here
 
 ## `views` directory
 
 This folder contains all the components, modules, directives and pipes in 2 important subfolders:
-  - container: All the components that actively interacts with the backend and the state, are here
-  - presentation: The components dedicated to show information to the user are here. No components
-    in this folder access directly the internet or the application state
+
+- container: All the components that actively interacts with the backend and the state, are here
+- presentation: The components dedicated to show information to the user are here. No components
+  in this folder access directly the internet or the application state
 
 # Design pattern
 
@@ -75,15 +84,30 @@ that was alread grabed in previous requests, in a cummulative way.
 Notice that there's no need to click on any button in order to request data. You only have to type
 in a valid user token on the input on the top of the page.
 
+# A11y
+
+I've chosen not to add aria attributes to the templates for two reasons: (a) it wasn's asked two
+and, (b) it won't add any information regarding my knowledge of angular.
+
 # What was hard to do
 
-Understanding the data at tzstats.com. As I'm not familiar with cryptocurrency terms and jargons,
-I've spent more than 1 day reading and researching to get some very basic knowlegde about this
-subject so I could minimally work with the data and accomplish the task. So, I think I spent 60% of
-the time reading about Tezos and cryptocurrencys and 40% of the time actually building the
-application (which is a simple one).
+Understanding the data and terminology at http://tzstats.com was the biggest issue for me. As I'm
+not currently a cryptocurrency user, I'm aware that I've got just the basics so I could minimally
+work with the data and accomplish the task. So you'll likely find mistakes on the business rules
+that define the final balance for each operation in the table. That's expected. Despite of that,
+the technology (@angular, @angular/material, @ngrx) part is fully working and the components are
+distributed in the project following a robust and flexible architecture though.
 
-One concept is still missing to me: the pending status. I got, from what I read in the description,
+The final balance is that spent 60% of the time reading about Tezos and cryptocurrencies and 40% of
+the time actually building the application.
+
+One concept is still missing to me: the pending status. I got, from what I've read in the description,
 that I should stick to the `transaction` type in the operations table. And I couldn't find a
 reliable way to find out when and how I could extract that "Pending" information that should be used
 in one of the label chips in the first column in the example image.
+
+Another thing I haven't gotten is related to the fees. I'm always adding the fee to the volume.
+After that, I'm considering that if the user is a sender, the value is negative, otherwise it's
+positive. This is something that makes sense for me (sending mone = negative; receiving
+money = positive), but in the example image there's a case of a `sent` which is positive. I couldn't
+figure out why this is was happening.

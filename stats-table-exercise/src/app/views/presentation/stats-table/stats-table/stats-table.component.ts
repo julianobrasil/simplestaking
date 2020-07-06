@@ -7,21 +7,13 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-
-import {
-  StatsTableComponentService,
-  StatsTableComponentEvent,
-} from './stats-table-component.service';
-import {Operation} from 'src/app/data-access/models';
 import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
-import {Subject, combineLatest} from 'rxjs';
-import {
-  takeUntil,
-  debounceTime,
-  pairwise,
-  startWith,
-  take,
-} from 'rxjs/operators';
+
+import {Subject} from 'rxjs';
+import {takeUntil, debounceTime, pairwise, startWith} from 'rxjs/operators';
+
+import {StatsTableComponentEvent} from './stats-table-component.model';
+import {Operation} from '../../../../data-access/models';
 
 @Component({
   selector: 'app-stats-table',
@@ -30,6 +22,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatsTableComponent implements OnDestroy {
+  /** The transactions of the selected user */
   @Input()
   get transactions(): Operation[] {
     return this._transactions;
@@ -55,26 +48,33 @@ export class StatsTableComponent implements OnDestroy {
   }
   private _transactions: Operation[] = [];
 
+  /** The user address filtered */
   @Input()
   filteredUser: string;
 
+  /** True if currently there are transactions being retrieved from the database */
   @Input()
   dataLoading: boolean;
 
+  /** The value of 1 TZ in other currency */
   @Input()
   exchangeRate: number;
 
+  /** The current cyle in TZ system */
   @Input()
   mostRecentCycle: number;
 
+  /** Emits to request more data */
   @Output()
   dataRequested: EventEmitter<StatsTableComponentEvent> = new EventEmitter<
     StatsTableComponentEvent
   >();
 
+  /** A reference to the virtual scroll in the template */
   @ViewChild(CdkVirtualScrollViewport)
   _virtualScrolling: CdkVirtualScrollViewport;
 
+  /** True if there's a scrollbar in the virtual scrolling component's viewport */
   _hasScrollbar: boolean;
 
   /**
@@ -96,6 +96,7 @@ export class StatsTableComponent implements OnDestroy {
     }
   }
 
+  /** Retrieve the transaction when the user clicks on the button on screen */
   _retrieveRecentTransactions(): void {
     if (this._virtualScrolling.measureScrollOffset('top')) {
       this._virtualScrolling.scrollToIndex(0);
@@ -104,6 +105,10 @@ export class StatsTableComponent implements OnDestroy {
     }
   }
 
+  /**
+   * Two main observables are setup here: one for checking if there's a scrollbar present, and
+   * other to check if the scroll bar has reach the top or bottom of the viewport
+   */
   private _setupObservables(): void {
     // Observe the amount of data to decide wheather there is a scroll bar or not
     // This is important for the alignment of the table header columns and the body columns

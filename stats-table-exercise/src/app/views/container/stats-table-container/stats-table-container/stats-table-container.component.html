@@ -1,25 +1,19 @@
 <div class="search-bar row">
   <mat-form-field appearance="fill"
                   floatLabel="always">
-    <mat-label>Enter your user token</mat-label>
-    <input matInput
-           [formControl]="_inputNameCtrl"
+    <mat-label>Enter your user address</mat-label>
+    <input [formControl]="_inputNameCtrl"
+           matInput
            placeholder="tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo">
   </mat-form-field>
-
-  <button (click)="_getTransactions()"
-          [disabled]="!_inputNameCtrl.value"
-          mat-raised-button
-          color="accent">GET TRANSACTIONS
-  </button>
 </div>
 
 <mat-card>
   <app-stats-table (dataRequested)="_handleDataRequested($event)"
                    [dataLoading]="_dataLoading$ | async"
-                   [filteredUser]="_filteredUser$ | async"
-                   [transactions]="_transactions$ | async"
                    [exchangeRate]="_tx2DollarExchangeRate$ | async"
-                   [mostRecentCycle]="_mostRecentCycle$ | async">
+                   [filteredUser]="_filteredUser$ | async"
+                   [mostRecentCycle]="_mostRecentCycle$ | async"
+                   [transactions]="_transactions$ | async">
   </app-stats-table>
 </mat-card>

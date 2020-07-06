@@ -20,7 +20,7 @@ export class StatsTableContainerComponentFacade {
       select(fromStatsStore.getFilter),
       map(
         (filter: FilterData) =>
-          filter.userToken || filter.receiverToken || filter.senderToken || '',
+          filter.userAddress || filter.receiverAddress || filter.senderAddress || '',
       ),
     );
   }
@@ -31,10 +31,10 @@ export class StatsTableContainerComponentFacade {
   }
 
   /** Update the search filter, reseting all the store */
-  updateSearchFilter(userToken: string): void {
+  updateSearchFilter(userAddress: string): void {
     this.loadMostRecentCycle();
     this._store.dispatch(
-      fromStatsStore.updateTzStatsFilterDataRequest({filter: {userToken}}),
+      fromStatsStore.updateTzStatsFilterDataRequest({filter: {userAddress}}),
     );
   }
 

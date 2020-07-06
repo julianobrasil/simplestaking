@@ -3,12 +3,12 @@ import {Operation} from '../../../../../data-access/models';
 
 @Pipe({name: 'partialAddress'})
 export class PartialAddressPipe implements PipeTransform {
-  transform(value: Operation, args: {userToken: string}): string {
-    if (!value || !args?.userToken) {
+  transform(value: Operation, args: {userAddress: string}): string {
+    if (!value || !args?.userAddress) {
       return '';
     }
 
-    if (value.sender === args.userToken) {
+    if (value.sender === args.userAddress) {
       return (
         value.receiver.substr(0, 2) +
         '...' +
@@ -16,7 +16,7 @@ export class PartialAddressPipe implements PipeTransform {
       );
     }
 
-    if (value.receiver === args.userToken) {
+    if (value.receiver === args.userAddress) {
       return (
         value.sender.substr(0, 2) +
         '...' +

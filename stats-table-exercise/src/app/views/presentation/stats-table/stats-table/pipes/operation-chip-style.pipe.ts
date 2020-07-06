@@ -5,9 +5,9 @@ import {Operation} from '../../../../../data-access/models';
 export class OperationChipStylePipe implements PipeTransform {
   transform(
     value: Operation,
-    args: {userToken: string; mostRecentCycle: number},
+    args: {userAddress: string; mostRecentCycle: number},
   ): Record<string, string | number> {
-    if (!value || !args?.userToken || !args.mostRecentCycle) {
+    if (!value || !args?.userAddress || !args.mostRecentCycle) {
       return {};
     }
 
@@ -20,7 +20,7 @@ export class OperationChipStylePipe implements PipeTransform {
       };
     }
 
-    if (value.sender === args.userToken) {
+    if (value.sender === args.userAddress) {
       return {
         'border-radius': '0.8rem',
         padding: '5px 10px',
@@ -29,7 +29,7 @@ export class OperationChipStylePipe implements PipeTransform {
       };
     }
 
-    if (value.receiver === args.userToken) {
+    if (value.receiver === args.userAddress) {
       return {
         'border-radius': '0.8rem',
         padding: '5px 10px',

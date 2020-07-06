@@ -1,7 +1,5 @@
 import {createAction, props} from '@ngrx/store';
 import {
-  RequestTransactionsFilter,
-  ResponseTransactionObject,
   PaginationData,
   Operation,
   FilterData,

@@ -7,10 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "build:prod": "ng build --prod",
     "cypress:open": "start-server-and-test start 4200 \"cypress open\"",
     "cypress:run": "start-server-and-test start 4200 \"cypress run\"",
     "ci:start-server": "angular-http-server --path ./dist/stats-table-exercise -p 4200",
-    "cy:run": "cypress run"
+    "ci:run": "cypress run"
   },
   "private": true,
   "dependencies": {
