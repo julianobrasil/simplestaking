@@ -74,10 +74,11 @@ the component (in normal situations, you just inject the façade in the componen
 
 # Virtual Scrolling
 
-As requested in the description of the exercise, I'm using `<cdk-virtual-scroll-viewport>` like a
-`infinite scroll`. So new data is loaded from the server (and saved to the store) as long as you
+As requested in the description of the exercise, I'm using `<cdk-virtual-scroll-viewport>` to achieve an
+`infinite scrolling` effect. So new data is loaded from the server (and saved to the store) as you
 scroll up and down through the table rows. The data that comes from the server is added to the data
-that was alread grabed in previous requests, in a cummulative way.
+that was already in the store in previous sequence of requests related to the same user account address,
+in a cummulative way.
 
 Notice that there's no need to click on any button in order to request data. You only have to type
 in a valid user token on the input on the top of the page.
