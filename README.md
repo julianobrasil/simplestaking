@@ -27,7 +27,7 @@ structure recommended by http://nrwl.io 's `Nx`.
 Instead of protractor, we are using cypress for the e2e tests. There's just four of them writen and
 you can run them by typing, in the command line: `npm run cypress:run`
 
-(If you know the basics of Cypress.io, you can also type `npm run cypress:open` and want to have fun
+(If you know the basics of Cypress.io, you can also type `npm run cypress:open` to have some fun
 seeing the project being used by cypress as it would be used by a real person).
 
 There's only one spec file inside the directory `cypress/integration/stats-table`, under the
