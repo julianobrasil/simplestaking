@@ -85,7 +85,7 @@ in a valid user token on the input on the top of the page.
 
 # A11y
 
-I've chosen not to add aria attributes to the templates for two reasons: (a) it wasn's asked two
+I've chosen not to add aria attributes to the templates for two reasons: (a) it wasn's asked to
 and, (b) it won't add any information regarding my knowledge of angular.
 
 # What was hard to do
