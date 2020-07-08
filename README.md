@@ -52,8 +52,8 @@ folders: `data-access` and `views`.
 This folder contains the following subfolders:
 
 - models: Most interfaces used in the project are inside this folder
-- api: The service that access txstats.com api is located here
-- store: all @ngrx files are here
+- api: The service that access tzstats.com api is located here
+- store: all `@ngrx` files are here
 
 ## `views` directory
 
@@ -69,7 +69,7 @@ Additionally to the demmanded state management solution, requested in the exerci
 also adopted a container-presentation architecture together with `OnPush` strategy. This combination
 is the best, in my opinion, to optimize the performance of the project. Also, I've used a Façade
 pattern whenever possible to encapsulate all the dependencies of the component in a single service. 
-With this approach I also simplify the component testing as there is fewer things to mock injected into 
+This approach also simplifies the component testing as there are fewer things to mock injected into 
 the component (in normal situations, you just inject the façade in the component).
 
 # Virtual Scrolling
@@ -77,11 +77,13 @@ the component (in normal situations, you just inject the façade in the componen
 As requested in the description of the exercise, I'm using `<cdk-virtual-scroll-viewport>` to achieve an
 `infinite scrolling` effect. So new data is loaded from the server (and saved to the store) as you
 scroll up and down through the table rows. The data that comes from the server is added to the data
-that was already in the store in previous sequence of requests related to the same user account address,
-in a cummulative way.
+that was already in the store as a side effect of previous sequence of requests related to the same 
+user account address, in a cummulative way. The statistics data in the store is completely erased whenever 
+you switch the account address in the input for another one. I'm not saving any data to `localStorage`
+or any client database, so all the state data will be lost if you refresh the page.
 
 Notice that there's no need to click on any button in order to request data. You only have to type
-in a valid user token on the input on the top of the page.
+in a valid user account address on the input on the top of the page.
 
 # A11y
 
@@ -91,18 +93,18 @@ and, (b) it won't add any information regarding my knowledge of angular.
 # What was hard to do
 
 Understanding the data and terminology at http://tzstats.com was the biggest issue for me. As I'm
-not currently a cryptocurrency user, I'm aware that I've got just the basics so I could minimally
-work with the data and accomplish the task. So you'll likely find mistakes on the business rules
-that define the final balance for each operation in the table. That's expected. Despite of that,
-the technology (@angular, @angular/material, @ngrx) part is fully working and the components are
+not currently a cryptocurrency user, I'm aware that I've learned just the basics so I could minimally
+work with the data and accomplish the task. As a consequence you'll likely find mistakes on the business 
+rules that calculate the final balance for each operation row in the table. That's expected. Despite of that,
+the technology (`@angular`, `@angular/material`, `@ngrx`) part is fully working and the components are
 distributed in the project following a robust and flexible architecture though.
 
-The final balance is that spent 60% of the time reading about Tezos and cryptocurrencies and 40% of
+The final balance is that I've spent 60% of the time reading about Tezos and cryptocurrencies and 40% of
 the time actually building the application.
 
-One concept is still missing to me: the pending status. I've got, from what I've read in the description,
-that I should stick to the `transaction` type in the operations table. And I couldn't find a
-reliable way to find out when and how I could extract that "Pending" information that appears
+One concept is still missing to me and called my attention: the pending status. I've got, from what I've read
+in the description, that I should stick to the `transaction` type in the operations table. And I couldn't 
+find a reliable way to find out when and how I could extract that "Pending" information that appears
 in one of the label chips in the example image (in the first column).
 
 Another thing I haven't gotten is related to the fees. I'm always adding the fee to the volume.
