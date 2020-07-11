@@ -5,6 +5,15 @@ that, I mean that, even if this is a simple project, I applied what I consider t
 practices for small to medium size projects. For large projects, I'd suggest adopting the 
 structure recommended by http://nrwl.io 's `Nx`.
 
+# See it running on Stackblitz.com
+
+If you don't want to compile the project below in your own machine, you can see it running on 
+https://juliano-simplestaking.stackblitz.io (just copy and paste this accound address on the input:
+tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo)
+
+Also, if you want to play with the code on Stackbliz, you can do it here: 
+https://stackblitz.com/edit/juliano-simplestaking
+
 # What you need to run the project
 
 - Node.js (the project was built against v13.11.0)
